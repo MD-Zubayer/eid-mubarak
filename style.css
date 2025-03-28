@@ -16,8 +16,8 @@ body {
     height: 150px;
     position: relative;
     border-radius: 50%;
-    border-left: 6px solid rgb(2, 27, 219);
-    border-right: 10px solid rgb(2, 27, 219);
+    border-left: 6px solid rgb(4, 29, 217);
+    border-right: 10px solid rgb(4, 27, 207);
     display: flex;
     justify-content: center;
     align-items: center;
