@@ -1,17 +1,18 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
 body {
     font-family: 'SolaimanLipi', Arial, sans-serif;
-   background: rgb(234, 231, 231);
+    background: rgb(234, 231, 231);
     text-align: center;
     padding: 20px;
     color: #333;
 }
 
-.my-photo{
+.my-photo {
     width: 150px;
     height: 150px;
     position: relative;
@@ -25,7 +26,7 @@ body {
 
 }
 
-.my-photo img{
+.my-photo img {
     position: absolute;
     width: 150px;
     height: 150px;
@@ -39,12 +40,12 @@ body {
     animation: 15s my-photo infinite;
 }
 
-@keyframes my-photo{
-    0%{
+@keyframes my-photo {
+    0% {
         transform: rotate(0deg);
     }
 
-    100%{
+    100% {
         transform: rotate(720deg);
     }
 }
@@ -55,8 +56,9 @@ body {
     background-color: white;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    box-shadow: 0 0 15px rgba(207, 5, 5, 0.1);
 }
+
 h1 {
     color: #27ae60;
     margin-bottom: 20px;
@@ -64,16 +66,22 @@ h1 {
 }
 
 @keyframes eid {
-    0% { opacity: 1; }
-    50% { opacity: 0.7; 
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.7;
         color: red;
     }
-    100% { opacity: 1;
+
+    100% {
+        opacity: 1;
         color: blue;
     }
 }
 
-.amnar-name{
+.amnar-name {
     font-size: 1.2rem;
     font-weight: 600;
 }
@@ -86,6 +94,7 @@ input {
     border-radius: 5px;
     margin-bottom: 20px;
 }
+
 .greeting {
     font-size: 24px;
     margin-top: 30px;
@@ -94,6 +103,7 @@ input {
     border-radius: 8px;
     display: none;
 }
+
 .eid-mubarak {
     color: #e74c3c;
     font-weight: bold;
@@ -101,15 +111,23 @@ input {
     margin-top: 10px;
     animation: blink 1.5s infinite;
 }
+
 @keyframes blink {
-    0% { opacity: 1; }
-    50% { opacity: 0.7; 
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.7;
         color: #27ae60;
     }
-    100% { opacity: 1;
+
+    100% {
+        opacity: 1;
         color: #e74c3c;
     }
 }
+
 .mosque-icon {
     font-size: 40px;
     margin: 20px 0;
