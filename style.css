@@ -1,134 +1,249 @@
-* {
+/* মূল ফন্ট সেটআপ */
+body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Noto Sans Bengali', sans-serif;
+    /* ডার্ক গ্রেডিয়েন্ট ব্যাকগ্রাউন্ড যাতে তারা ও বাজি স্পষ্ট দেখায় */
+    background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%);
+    color: #fff;
+    overflow: hidden;
+    /* ক্যানভাস ও স্টার-এলিমেন্ট স্ক্রিন কাটবে না */
 }
 
-body {
-    font-family: 'SolaimanLipi', Arial, sans-serif;
-    background: rgb(234, 231, 231);
-    text-align: center;
-    padding: 20px;
-    color: #333;
+/* স্টার-ব্যাকগ্রাউন্ড: পুরো স্ক্রিনে বিস্তৃত */
+.star-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    /* সব কনটেন্টের পিছনে থাকবে */
+    overflow: hidden;
 }
 
-.my-photo {
-    width: 150px;
-    height: 150px;
-    position: relative;
+/* প্রতিটি তারা: ছোট গোলাকার ডিভ যার opacity টুইঙ্কল করবে */
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: #ffffff;
     border-radius: 50%;
-    border-left: 6px solid rgb(4, 29, 217);
-    border-right: 10px solid rgb(4, 27, 207);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
+    opacity: 0;
+    animation: twinkle 2s infinite ease-in-out;
+}
 
+/* টুইঙ্কল অ্যানিমেশন: opacity 0 ↔ 1 */
+@keyframes twinkle {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+/* ফায়ারওয়ার্কস ক্যানভাস স্টাইল */
+#fireworkCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    /* তারার ওপরে কিন্তু কনটেন্টের পিছনে */
+}
+
+/* মূল কন্টেইনার সেন্টারে নিয়ে এলাম */
+.container {
+    max-width: 450px;
+    margin: 50px auto;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    padding: 30px 20px;
+    position: relative;
+}
+
+/* মসজিদ এবং ছবি নিয়ে এসেছে ফ্লেক্সে */
+.mosque-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* মসজিদের আইকন বড় এবং রঙিন */
+.mosque-icon {
+    font-size: 60px;
+    color: #e8e1e7;
+    animation: bounce 2s infinite;
+}
+
+/* আপনার ছবির জন্য স্টাইল—রাউন্ড, বর্ডার এবং সেসব */
+.my-photo {
+    width: 100px;
+    height: 100px;
+    border: 4px solid #e8e1e7;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-top: -30px;
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .my-photo img {
-    position: absolute;
-    width: 150px;
-    height: 150px;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-left: 4px solid rgb(230, 12, 12);
-    border-right: 4px solid rgb(230, 12, 12);
-    animation: 15s my-photo infinite;
 }
 
-@keyframes my-photo {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    100% {
-        transform: rotate(720deg);
-    }
+/* প্রধান টাইটিলের স্টাইল */
+.main-title {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    color: #ffe8d6;
+    letter-spacing: 1px;
+    animation: fadeInDown 1s ease-out;
 }
 
-.container {
-    max-width: 600px;
-    margin: 0 auto;
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(207, 5, 5, 0.1);
-}
-
-h1 {
-    color: #27ae60;
+/* সাবটাইটিসের জন্য */
+.subtitle {
+    font-size: 1rem;
     margin-bottom: 20px;
-    animation: 1.5s eid infinite;
+    color: #d3c0cd;
 }
 
-@keyframes eid {
-    0% {
-        opacity: 1;
-    }
-
-    50% {
-        opacity: 0.7;
-        color: red;
-    }
-
-    100% {
-        opacity: 1;
-        color: blue;
-    }
+/* ইনপুট ফিল্ড সুন্দর বানালাম */
+.name-input {
+    width: 80%;
+    padding: 12px 15px;
+    border: 2px solid #e8e1e7;
+    border-radius: 25px;
+    font-size: 1rem;
+    outline: none;
+    transition: background 0.3s, box-shadow 0.3s;
+    background: rgba(0, 0, 0, 0.3);
+    color: #fff;
 }
 
-.amnar-name {
-    font-size: 1.2rem;
-    font-weight: 600;
+.name-input::placeholder {
+    color: #ccc;
 }
 
-input {
-    padding: 12px;
-    width: 70%;
-    font-size: 16px;
-    border: 2px solid #ddd;
-    border-radius: 5px;
-    margin-bottom: 20px;
+.name-input:focus {
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 8px rgba(232, 225, 231, 0.6);
 }
 
-.greeting {
-    font-size: 24px;
-    margin-top: 30px;
-    padding: 20px;
-    background-color: #f8f9fa;
-    border-radius: 8px;
+/* শুভেচ্ছা বক্স প্রথমে লুকানো থাকবে */
+.greeting-box {
     display: none;
+    margin-top: 25px;
+    background: rgba(255, 255, 255, 0.15);
+    border: 2px solid #e8e1e7;
+    border-radius: 12px;
+    padding: 20px;
+    animation: fadeInUp 0.8s ease-out;
 }
 
+/* ব্যক্তি অনুযায়ী নাম দেখানোর স্টাইল */
+.personal-greeting {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #f0e6f6;
+    font-weight: 700;
+}
+
+/* Eid মোবারক টেক্সটের জন্য এ্যানিমেশনসহ স্টাইল */
 .eid-mubarak {
-    color: #e74c3c;
-    font-weight: bold;
-    font-size: 28px;
-    margin-top: 10px;
-    animation: blink 1.5s infinite;
+    font-size: 1.5rem;
+    color: #ffd60a;
+    font-weight: 700;
+    animation: popIn 0.8s ease-out;
 }
 
-@keyframes blink {
-    0% {
-        opacity: 1;
-    }
+.eid-mubarak span {
+    display: inline-block;
+    font-size: 1.2rem;
+    margin-top: 8px;
+}
 
-    50% {
-        opacity: 0.7;
-        color: #27ae60;
+/* অ্যানিমেশনস */
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
     }
 
     100% {
         opacity: 1;
-        color: #e74c3c;
+        transform: translateY(0);
     }
 }
 
-.mosque-icon {
-    font-size: 40px;
-    margin: 20px 0;
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes popIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes bounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-15px);
+    }
+
+    60% {
+        transform: translateY(-8px);
+    }
+}
+
+/* রেসপন্সিভ ডিজাইন */
+@media (max-width: 500px) {
+    .container {
+        margin: 30px 10px;
+        padding: 25px 15px;
+    }
+
+    .main-title {
+        font-size: 1.8rem;
+    }
+
+    .name-input {
+        width: 90%;
+    }
 }
